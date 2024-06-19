@@ -39,3 +39,39 @@ person.greet.apply(anotherPerson); //When .apply() is called on person,
 const bindGreeting = person.greet.bind(anotherPerson); 
 bindGreeting();  // When greet() is called using a function created by bind(),
                //{this} refers to the anotherPerson object bound to the new function
+
+
+
+
+
+/*********************************
+ **** Event Handlers and this ****
+ ********************************/
+
+
+// Using regular function
+const button = document.getElementById('eventBtn');
+const normalFunc = document.querySelector('.normal-func')
+const normalFuncTextContent = document.querySelector('.normal-func-text')
+const arrowFunc = document.querySelector('.arrow-func')
+const arrowFuncTextContent = document.querySelector('.arrow-func-text')
+
+button.addEventListener('click', handleClick);
+    function handleClick() {
+      console.log('');
+      normalFunc.textContent = `Button ID = ${this.id}`
+      normalFuncTextContent.textContent = `Button Text Content = ${this.textContent}`;
+    }
+
+
+
+// Using arrow function
+button.addEventListener('click', () => {
+      console.log('Using arrow function:');
+      arrowFunc.textContent = `Button ID: ${this.id}`; // undefined
+      arrowFuncTextContent.textContent = `Button Text Content: ${this.textContent}`
+
+})
+
+
+
