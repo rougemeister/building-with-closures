@@ -127,6 +127,9 @@ button.addEventListener('click', () => {
         const displayStoppage = document.querySelector('.display-stoppage')
         displayStoppage.classList.add('show')
         displayStoppage.textContent = 'Countdown complete'
+        setTimeout(()=>{
+          location.reload();
+        }, 2000)
               
       }
     }
