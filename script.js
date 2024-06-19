@@ -49,16 +49,20 @@ bindGreeting();  // When greet() is called using a function created by bind(),
  ********************************/
 
 
-// Using regular function
 const button = document.getElementById('eventBtn');
 const normalFunc = document.querySelector('.normal-func')
 const normalFuncTextContent = document.querySelector('.normal-func-text')
+const normalFuncThis = document.querySelector('.normal-func-this')
+const arrowFuncThis = document.querySelector('.arrow-func-this')
 const arrowFunc = document.querySelector('.arrow-func')
 const arrowFuncTextContent = document.querySelector('.arrow-func-text')
 
+
+
+// Using regular function
 button.addEventListener('click', handleClick);
     function handleClick() {
-      console.log('');
+      normalFuncThis.textContent = `"this" = ${this} `
       normalFunc.textContent = `Button ID = ${this.id}`
       normalFuncTextContent.textContent = `Button Text Content = ${this.textContent}`;
     }
@@ -67,8 +71,8 @@ button.addEventListener('click', handleClick);
 
 // Using arrow function
 button.addEventListener('click', () => {
-      console.log('Using arrow function:');
-      arrowFunc.textContent = `Button ID: ${this.id}`; // undefined
+      arrowFuncThis.textContent = `"this" = ${this}`
+      arrowFunc.textContent = `Button ID: ${this.id}`;
       arrowFuncTextContent.textContent = `Button Text Content: ${this.textContent}`
 
 })
@@ -80,13 +84,15 @@ button.addEventListener('click', () => {
  **** Private Data with Closures and this ****
  *********************************************/
 
+
+
  function createCounter() {
     let count = 0; // Private variable
   
     return {
       increment: function() {
         count++;
-        console.log(`New count value: ${count}`);
+        console.log(`New count value: ${this.count}`);
       },
       getCount: function() {
         return count;
@@ -96,7 +102,7 @@ button.addEventListener('click', () => {
   
 
   const counter = createCounter();
-  counter.increment(); // Output: New count value: 1
-  counter.increment(); // Output: New count value: 2
-  console.log(counter.getCount()); // Output: 2
+  counter.increment(); // Output: Undefined
+  counter.increment(); // Output: undefined
+  console.log("getCount() Output: ", counter.getCount()); // Output: 2
   
