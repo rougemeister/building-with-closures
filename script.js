@@ -75,3 +75,28 @@ button.addEventListener('click', () => {
 
 
 
+
+/**********************************************
+ **** Private Data with Closures and this ****
+ *********************************************/
+
+ function createCounter() {
+    let count = 0; // Private variable
+  
+    return {
+      increment: function() {
+        count++;
+        console.log(`New count value: ${count}`);
+      },
+      getCount: function() {
+        return count;
+      }
+    };
+  }
+  
+
+  const counter = createCounter();
+  counter.increment(); // Output: New count value: 1
+  counter.increment(); // Output: New count value: 2
+  console.log(counter.getCount()); // Output: 2
+  
