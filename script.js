@@ -106,3 +106,44 @@ button.addEventListener('click', () => {
   counter.increment(); // Output: undefined
   console.log("getCount() Output: ", counter.getCount()); // Output: 2
   
+
+
+
+  /***************************************************
+ **** Reusable Component with Closure and this. ****
+ ****************************************************/
+
+
+ function createTimer(duration, elementId) {
+    let remainingTime = duration; // Private variable to store remaining time
+  
+  
+  
+    function updateTimer() {
+
+      if (remainingTime >= 0) {
+        this.document.getElementById(elementId).textContent = `Time remaining: ${remainingTime} seconds`;    // Get correct element using this
+        remainingTime--;
+      } else {
+        clearInterval(intervalId);
+        const displayStoppage = document.querySelector('.display-stoppage')
+        displayStoppage.classList.add('show')
+        displayStoppage.textContent = 'Countdown complete'
+              
+      }
+    }
+    const intervalId = setInterval(updateTimer, 1000); // Set up the interval to call updateTimer every second
+  
+
+    updateTimer();
+  }
+  
+ 
+  function startTimer(){
+    const timerInput = Number(document.querySelector('input').value)
+    createTimer(timerInput, 'timer-display');
+
+ }
+
+
+ document.querySelector('.start').addEventListener('click', startTimer)
