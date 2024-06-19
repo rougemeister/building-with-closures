@@ -37,5 +37,5 @@ person.greet.apply(anotherPerson); //When .apply() is called on person,
 
 // Using bind()
 const bindGreeting = person.greet.bind(anotherPerson); 
-boundGreet();  // When greet() is called using a function created by bind(),
+bindGreeting();  // When greet() is called using a function created by bind(),
                //{this} refers to the anotherPerson object bound to the new function
