@@ -102,8 +102,8 @@ button.addEventListener('click', () => {
   
 
   const counter = createCounter();
-  counter.increment(); // Output: Undefined
-  counter.increment(); // Output: undefined
+  counter.increment(); // Output: Undefined //Cannot access count using this
+  counter.increment(); // Output: undefined //Cannot access count using this
   console.log("getCount() Output: ", counter.getCount()); // Output: 2
   
 
@@ -116,8 +116,6 @@ button.addEventListener('click', () => {
 
  function createTimer(duration, elementId) {
     let remainingTime = duration; // Private variable to store remaining time
-  
-  
   
     function updateTimer() {
 
