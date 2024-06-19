@@ -11,7 +11,22 @@ body {
     font-family: Jost,sans-serif;
 }
 
+/* Typography */
+.show {
+    margin-top: 10px;
+    background-color: #2ec4b6;
+    display: inline-block;
+    color: white;
+    font-weight: 700;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
 
+#timer-display {
+    font-weight: 600;
+}
+
+/* Layout */
 .main-page {
     margin: 50px auto;
     width: 750px;
@@ -29,6 +44,13 @@ body {
 }
 
 
+.timer {
+    margin-top: 50px;
+}
+
+
+
+/* Buttons */
 button {
   align-items: center;
   background-color: #fee6e3;
@@ -79,5 +101,24 @@ button:active {
 
 button:hover {
   outline: 0;
+}
+
+
+/* Input */
+
+input {
+    width: 100px;
+    height: 100px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    background-color:#fff9f8 ;
+    outline: none;
+    border: 1px solid #923b30;
+    text-align: center;
+    font-size: 50px;
+    border-radius: 5px;
+    font-family: Jost, sans-serif;
+    color: #923b30;
 }
 
